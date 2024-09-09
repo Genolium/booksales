@@ -1,0 +1,375 @@
+@font-face {
+    font-family: 'CoFo Sans';
+    src: url('fonts/CoFoSans-Bold.eot');
+    src: local('CoFo Sans Bold'), local('CoFoSans-Bold'),
+        url('fonts/CoFoSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CoFoSans-Bold.woff2') format('woff2'),
+        url('fonts/CoFoSans-Bold.woff') format('woff'),
+        url('fonts/CoFoSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFo Sans';
+    src: url('fonts/CoFoSans-Black.eot');
+    src: local('CoFo Sans Black'), local('CoFoSans-Black'),
+        url('fonts/CoFoSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CoFoSans-Black.woff2') format('woff2'),
+        url('fonts/CoFoSans-Black.woff') format('woff'),
+        url('fonts/CoFoSans-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFo Sans';
+    src: url('fonts/CoFoSans-Regular.eot');
+    src: local('CoFo Sans'), local('CoFoSans-Regular'),
+        url('fonts/CoFoSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CoFoSans-Regular.woff2') format('woff2'),
+        url('fonts/CoFoSans-Regular.woff') format('woff'),
+        url('fonts/CoFoSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFo Sans';
+    src: url('fonts/CoFoSans-Medium.eot');
+    src: local('CoFo Sans Medium'), local('CoFoSans-Medium'),
+        url('fonts/CoFoSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CoFoSans-Medium.woff2') format('woff2'),
+        url('fonts/CoFoSans-Medium.woff') format('woff'),
+        url('fonts/CoFoSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFo Robert';
+    src: url('fonts/CoFoRobert-RegularItalic.eot');
+    src: local('CoFo Robert Italic'), local('CoFoRobert-RegularItalic'),
+        url('fonts/CoFoRobert-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CoFoRobert-RegularItalic.woff2') format('woff2'),
+        url('fonts/CoFoRobert-RegularItalic.woff') format('woff'),
+        url('fonts/CoFoRobert-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+*{
+    font-family: 'CoFo Sans'; font-weight: normal; font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-color: #FFFCE8; /* Фон */
+}
+
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+  
+.image-gallery img {
+    margin: 5px; 
+    height: auto;
+    display: block;
+}
+
+header {
+    background-color: #FFFCE8; /* Цвет header */
+    padding: 10px;
+    display: flex;
+    align-items: center; 
+}
+  
+.nav-container { 
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+}
+
+.nav-container a{    
+    color: #DD403A; 
+    font-weight: 300;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+  
+.logo img {
+    height: 70px; 
+}
+
+nav a { 
+    color: #3E363F; 
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+}
+
+nav {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+  
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+  
+nav li {
+    margin-left: 20px;
+}
+  
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column; 
+      text-align: center;
+    }
+  
+    .logo {
+      justify-content: center;
+    }
+  
+    nav ul {
+      flex-direction: column;
+    }
+  
+    nav li {
+      margin: 5px 0;
+    }
+}
+
+h2, h3, p { /* Цвет заголовков и текста */
+    color: #3E363F; 
+}
+
+/* Стили для секции featured-books */
+.featured-books {
+    padding: 20px; /* Добавляем отступы внутри секции */
+}
+
+.book-grid {
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос книг на новую строку */
+    justify-content: center; /* Выравниваем книги по центру */
+}  
+
+.book-item {
+    color:#3E363F;
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    margin-bottom: 20px;
+    width: calc(100% / 4 - 20px); /* Ширина элемента book-item с учетом отступов */
+    margin: 10px; /* Отступы между book-item */
+}
+
+.book-item img {
+    max-width: 100%; /* Картинка не будет шире своего контейнера */
+    height: auto; /* Высота подстраивается автоматически */
+    display: block; /* Убираем лишние отступы */
+}
+
+.book-info h4 {
+    margin: 0 0 5px 0;
+    font-weight: bold; 
+}
+
+.book-info p {
+    margin: 0;
+    font-family: 'CoFo Robert'; 
+    font-style: italic; 
+}
+
+/* Медиа-запросы для разных размеров экрана (аналогично image-gallery) */
+@media (max-width: 1200px) {
+    .book-item {
+      width: calc(100% / 3 - 20px); 
+    }
+}
+
+@media (max-width: 900px) {
+    .book-item {
+      width: calc(100% / 2 - 20px); 
+    }
+}
+
+@media (max-width: 600px) {
+    .book-item {
+      width: calc(100% - 20px); 
+    }
+}
+
+.hero {    
+    padding: 0 20rem; 
+  }
+  
+  .hero > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Распределяем элементы по краям */
+  }
+  
+  .hero-content {
+    margin-bottom: 20px;
+  }
+  
+  .hero-content h2 {
+    font-size: 3rem; /* Размер заголовка */
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem; /* Размер текста */
+  }
+  
+  .hero-image {
+    flex: 0 0 300px; /* Фиксированная ширина 500px */
+  }
+  
+  .hero-image img {
+    width: 100%;
+    max-height: 700px;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 900px) { 
+    .hero{
+        padding: 15px;
+    }
+
+    .hero-content p {
+        font-size: 0.9em; /* Размер текста */
+      }
+
+    .hero > div {
+      justify-content: center; /* Выравниваем элементы по центру */
+    }
+  
+    .hero-content {
+      margin-bottom: 0;
+      text-align: center; /* Выравниваем текст по центру */
+    }
+  
+    .hero-image {
+      flex: 1 0 100%; /* Занимаем всю ширину */
+      margin-top: 20px;
+    }
+  }
+
+
+  .book-details-content {
+    padding: 0 5rem;
+    display: flex;
+    align-items: flex-center; /* Выравниваем элементы по верху */
+    justify-content: center;
+    gap: 50px; /* Отступ между изображением и информацией */
+}
+
+.book-details img {
+    max-width: 450px; /* Максимальная ширина изображения */
+    object-fit: cover;
+    height: auto;
+}
+
+.book-info h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.book-info h2 {
+    margin-top: 20px; 
+}
+
+.book-info ul {
+    list-style: disc; /* Тип маркера списка */
+    padding-left: 20px; /* Отступ слева для списка */
+}
+
+.book-info button {
+    background-color: #DD403A; /* Цвет кнопки */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 768px) {
+    .book-details-content {
+        flex-direction: column; /* Располагаем элементы в колонку */
+        align-items: center; /* Выравниваем элементы по центру */
+    }
+
+    .book-details img {
+        max-width: 100%; /* Изображение занимает всю ширину */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+}
+
+.contacts-info {
+    display: flex;
+    justify-content: space-between; /* Располагаем элементы по краям */
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+}
+
+.contact-item {
+    flex: 0 0 calc(33.33% - 20px); /* Ширина элемента с учетом отступов */
+    margin-bottom: 20px;
+}
+.contact-item a{
+    text-decoration: none;
+    color:#DD403A;
+}
+
+.map {
+    width: 100%;
+    height: 500px; /* Высота карты */
+    background-color: #eee; /* Замените на код вставки карты */
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 768px) {
+    .contacts-info {
+        flex-direction: column; /* Располагаем элементы в колонку */
+    }
+
+    .contact-item {
+        flex: 1 0 100%; /* Элемент занимает всю ширину */
+    }
+}
