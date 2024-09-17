@@ -1,146 +1,151 @@
+/* Шрифты */
 @font-face {
-    font-family: 'CoFo Sans';
-    src: url('fonts/CoFoSans-Bold.eot');
-    src: local('CoFo Sans Bold'), local('CoFoSans-Bold'),
-        url('fonts/CoFoSans-Bold.eot?#iefix') format('embedded-opentype'),
-        url('fonts/CoFoSans-Bold.woff2') format('woff2'),
-        url('fonts/CoFoSans-Bold.woff') format('woff'),
-        url('fonts/CoFoSans-Bold.ttf') format('truetype');
+    font-family: "CoFo Sans";
+    src: url("fonts/CoFoSans-Bold.eot");
+    src: local("CoFo Sans Bold"), local("CoFoSans-Bold"),
+      url("fonts/CoFoSans-Bold.eot?#iefix") format("embedded-opentype"),
+      url("fonts/CoFoSans-Bold.woff2") format("woff2"),
+      url("fonts/CoFoSans-Bold.woff") format("woff"),
+      url("fonts/CoFoSans-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'CoFo Sans';
-    src: url('fonts/CoFoSans-Black.eot');
-    src: local('CoFo Sans Black'), local('CoFoSans-Black'),
-        url('fonts/CoFoSans-Black.eot?#iefix') format('embedded-opentype'),
-        url('fonts/CoFoSans-Black.woff2') format('woff2'),
-        url('fonts/CoFoSans-Black.woff') format('woff'),
-        url('fonts/CoFoSans-Black.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: "CoFo Sans";
+    src: url("fonts/CoFoSans-Black.eot");
+    src: local("CoFo Sans Black"), local("CoFoSans-Black"),
+      url("fonts/CoFoSans-Black.eot?#iefix") format("embedded-opentype"),
+      url("fonts/CoFoSans-Black.woff2") format("woff2"),
+      url("fonts/CoFoSans-Black.woff") format("woff"),
+      url("fonts/CoFoSans-Black.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'CoFo Sans';
-    src: url('fonts/CoFoSans-Regular.eot');
-    src: local('CoFo Sans'), local('CoFoSans-Regular'),
-        url('fonts/CoFoSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url('fonts/CoFoSans-Regular.woff2') format('woff2'),
-        url('fonts/CoFoSans-Regular.woff') format('woff'),
-        url('fonts/CoFoSans-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: "CoFo Sans";
+    src: url("fonts/CoFoSans-Regular.eot");
+    src: local("CoFo Sans"), local("CoFoSans-Regular"),
+      url("fonts/CoFoSans-Regular.eot?#iefix") format("embedded-opentype"),
+      url("fonts/CoFoSans-Regular.woff2") format("woff2"),
+      url("fonts/CoFoSans-Regular.woff") format("woff"),
+      url("fonts/CoFoSans-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'CoFo Sans';
-    src: url('fonts/CoFoSans-Medium.eot');
-    src: local('CoFo Sans Medium'), local('CoFoSans-Medium'),
-        url('fonts/CoFoSans-Medium.eot?#iefix') format('embedded-opentype'),
-        url('fonts/CoFoSans-Medium.woff2') format('woff2'),
-        url('fonts/CoFoSans-Medium.woff') format('woff'),
-        url('fonts/CoFoSans-Medium.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: "CoFo Sans";
+    src: url("fonts/CoFoSans-Medium.eot");
+    src: local("CoFo Sans Medium"), local("CoFoSans-Medium"),
+      url("fonts/CoFoSans-Medium.eot?#iefix") format("embedded-opentype"),
+      url("fonts/CoFoSans-Medium.woff2") format("woff2"),
+      url("fonts/CoFoSans-Medium.woff") format("woff"),
+      url("fonts/CoFoSans-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'CoFo Robert';
-    src: url('fonts/CoFoRobert-RegularItalic.eot');
-    src: local('CoFo Robert Italic'), local('CoFoRobert-RegularItalic'),
-        url('fonts/CoFoRobert-RegularItalic.eot?#iefix') format('embedded-opentype'),
-        url('fonts/CoFoRobert-RegularItalic.woff2') format('woff2'),
-        url('fonts/CoFoRobert-RegularItalic.woff') format('woff'),
-        url('fonts/CoFoRobert-RegularItalic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: "CoFo Robert";
+    src: url("fonts/CoFoRobert-RegularItalic.eot");
+    src: local("CoFo Robert Italic"), local("CoFoRobert-RegularItalic"),
+      url("fonts/CoFoRobert-RegularItalic.eot?#iefix") format("embedded-opentype"),
+      url("fonts/CoFoRobert-RegularItalic.woff2") format("woff2"),
+      url("fonts/CoFoRobert-RegularItalic.woff") format("woff"),
+      url("fonts/CoFoRobert-RegularItalic.ttf") format("truetype");
     font-weight: normal;
     font-style: italic;
-}
-
-*{
-    font-family: 'CoFo Sans'; font-weight: normal; font-style: normal;
-}
-
-body {
+  }
+  
+  /* Общие стили */
+  * {
+    font-family: "CoFo Sans";
+    font-weight: normal;
+    font-style: normal;
+    transition: all 0.3s ease;
+  }
+  
+  body {
     margin: 0;
-    background-color: #FFFCE8; /* Фон */
-}
-
-.container {
+    background-color: #fffce8; /* Фон */
+  }
+  
+  .container {
     max-width: 2000px;
     margin: 0 auto;
     padding: 20px;
-}
-
-.image-gallery {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-}
+  }
   
-.image-gallery img {
-    margin: 5px; 
-    height: auto;
-    display: block;
-}
-
-header {
-    background-color: #FFFCE8; /* Цвет header */
+  h2,
+  h3,
+  p {
+    /* Цвет заголовков и текста */
+    color: #3e363f;
+  }
+  
+  /* Header */
+  header {
+    background-color: #fffce8; /* Цвет header */
     padding: 10px;
     display: flex;
-    align-items: center; 
-}
+    align-items: center;
+  }
   
-.nav-container { 
+  .nav-container {
     display: flex;
-    justify-content: space-between; 
-    width: 100%; 
-}
-
-.nav-container a{    
-    color: #DD403A; 
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .nav-container a {
+    color: #dd403a;
     font-weight: 300;
     text-decoration: none; /* Убираем подчеркивание ссылки */
-}
-
-.logo {
+  }
+  
+  .logo {
     display: flex;
     align-items: center;
-}
+  }
   
-.logo img {
-    height: 70px; 
-}
-
-nav a { 
-    color: #3E363F; 
+  .logo img {
+    height: 70px;
+  }
+  
+  .logo img:hover {
+    transform: scale(1.05); /* Увеличиваем размер при наведении */
+  }
+  
+  nav a {
+    color: #3e363f;
     font-weight: bold;
     text-align: center;
     text-decoration: none; /* Убираем подчеркивание ссылки */
-}
-
-nav {
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-}
+  }
   
-nav ul {
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-}
+  }
   
-nav li {
+  nav li {
     margin-left: 20px;
-}
+  }
   
-/* Медиа-запрос для мобильных устройств */
-@media (max-width: 768px) {
+  /* Медиа-запрос для мобильных устройств (Header) */
+  @media (max-width: 768px) {
     .nav-container {
-      flex-direction: column; 
+      flex-direction: column;
       text-align: center;
     }
   
@@ -155,70 +160,11 @@ nav li {
     nav li {
       margin: 5px 0;
     }
-}
-
-h2, h3, p { /* Цвет заголовков и текста */
-    color: #3E363F; 
-}
-
-/* Стили для секции featured-books */
-.featured-books {
-    padding: 20px; /* Добавляем отступы внутри секции */
-}
-
-.book-grid {
-    display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос книг на новую строку */
-    justify-content: center; /* Выравниваем книги по центру */
-}  
-
-.book-item {
-    color:#3E363F;
-    text-align: center;
-    text-decoration: none; /* Убираем подчеркивание */
-    margin-bottom: 20px;
-    width: calc(100% / 4 - 20px); /* Ширина элемента book-item с учетом отступов */
-    margin: 10px; /* Отступы между book-item */
-}
-
-.book-item img {
-    max-width: 100%; /* Картинка не будет шире своего контейнера */
-    height: auto; /* Высота подстраивается автоматически */
-    display: block; /* Убираем лишние отступы */
-}
-
-.book-info h4 {
-    margin: 0 0 5px 0;
-    font-weight: bold; 
-}
-
-.book-info p {
-    margin: 0;
-    font-family: 'CoFo Robert'; 
-    font-style: italic; 
-}
-
-/* Медиа-запросы для разных размеров экрана (аналогично image-gallery) */
-@media (max-width: 1200px) {
-    .book-item {
-      width: calc(100% / 3 - 20px); 
-    }
-}
-
-@media (max-width: 900px) {
-    .book-item {
-      width: calc(100% / 2 - 20px); 
-    }
-}
-
-@media (max-width: 600px) {
-    .book-item {
-      width: calc(100% - 20px); 
-    }
-}
-
-.hero {    
-    padding: 0 20rem; 
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 0 20rem;
   }
   
   .hero > div {
@@ -252,15 +198,20 @@ h2, h3, p { /* Цвет заголовков и текста */
     object-fit: cover;
   }
   
-  @media (max-width: 900px) { 
-    .hero{
-        padding: 15px;
+  .hero-image:hover {
+    transform: scale(1.05); /* Увеличиваем размер при наведении */
+  }
+  
+  /* Медиа-запрос для Hero Section */
+  @media (max-width: 900px) {
+    .hero {
+      padding: 15px;
     }
-
+  
     .hero-content p {
-        font-size: 0.9em; /* Размер текста */
-      }
-
+      font-size: 0.9em; /* Размер текста */
+    }
+  
     .hero > div {
       justify-content: center; /* Выравниваем элементы по центру */
     }
@@ -275,101 +226,247 @@ h2, h3, p { /* Цвет заголовков и текста */
       margin-top: 20px;
     }
   }
-
-
+  
+  /* Book Items */
+  .featured-books {
+    padding: 20px; /* Добавляем отступы внутри секции */
+  }
+  
+  .book-grid {
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос книг на новую строку */
+    justify-content: center; /* Выравниваем книги по центру */
+  }
+  
+  .book-item {
+    color: #3e363f;
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    margin-bottom: 20px;
+    width: calc(100% / 5 - 20px);
+    margin: 5px;
+    padding: 15px;
+  }
+  
+  .book-item:hover {
+    transform: scale(1.05); /* Увеличиваем размер при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+  }
+  
+  .book-item img {
+    max-width: 100%; /* Картинка не будет шире своего контейнера */
+    height: auto; /* Высота подстраивается автоматически */
+    display: block; /* Убираем лишние отступы */
+  }
+  
+  .book-info h4 {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+  }
+  
+  .book-info p {
+    margin: 0;
+    font-family: "CoFo Robert";
+    font-style: italic;
+  }
+  
+  /* Медиа-запросы для разных размеров экрана (Book Items) */
+  @media (max-width: 1200px) {
+    .book-item {
+      width: calc(100% / 3 - 20px);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .book-item {
+      width: calc(100% / 2 - 20px);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .book-item {
+      width: calc(100% - 20px);
+    }
+  }
+  
+  /* Book Details */
   .book-details-content {
     padding: 0 5rem;
     display: flex;
     align-items: flex-center; /* Выравниваем элементы по верху */
     justify-content: center;
     gap: 50px; /* Отступ между изображением и информацией */
-}
-
-.book-details img {
+  }
+  
+  .book-details img {
     max-width: 450px; /* Максимальная ширина изображения */
     object-fit: cover;
     height: auto;
-}
-
-.book-info h1 {
+  }
+  
+  .book-info h1 {
     margin-top: 0;
     margin-bottom: 10px;
-}
-
-.book-info h2 {
-    margin-top: 20px; 
-}
-
-.book-info ul {
+  }
+  
+  .book-info h2 {
+    margin-top: 20px;
+  }
+  
+  .book-info ul {
     list-style: disc; /* Тип маркера списка */
     padding-left: 20px; /* Отступ слева для списка */
-}
-
-.book-info button {
-    background-color: #DD403A; /* Цвет кнопки */
+  }
+  
+  .book-info button {
+    background-color: #dd403a; /* Цвет кнопки */
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-}
-
-/* Медиа-запрос для маленьких экранов */
-@media (max-width: 768px) {
+  }
+  
+  /* Медиа-запрос для Book Details */
+  @media (max-width: 768px) {
     .book-details-content {
-        flex-direction: column; /* Располагаем элементы в колонку */
-        align-items: center; /* Выравниваем элементы по центру */
+      padding: 0 15px;
+      flex-direction: column; /* Располагаем элементы в колонку */
+      align-items: center; /* Выравниваем элементы по центру */
     }
-
+  
     .book-details img {
-        max-width: 100%; /* Изображение занимает всю ширину */
-        margin-bottom: 20px; /* Отступ снизу */
+      max-width: 100%; /* Изображение занимает всю ширину */
+      margin-bottom: 20px; /* Отступ снизу */
     }
-}
-
-.contacts-info {
+  }
+  
+  /* Contacts */
+  .contacts-info {
     display: flex;
     justify-content: space-between; /* Располагаем элементы по краям */
     flex-wrap: wrap; /* Разрешаем перенос на новую строку */
-}
-
-.contact-item {
+  }
+  
+  .contact-item {
     flex: 0 0 calc(33.33% - 20px); /* Ширина элемента с учетом отступов */
     margin-bottom: 20px;
-}
-.contact-item a{
+  }
+  
+  .contact-item a {
     text-decoration: none;
-    color:#DD403A;
-}
-
-.map {
+    color: #dd403a;
+  }
+  
+  .map {
     width: 100%;
     height: 500px; /* Высота карты */
     background-color: #eee; /* Замените на код вставки карты */
-}
-
-.form-group {
+  }
+  
+  .background {
+    max-height: 300px;
+    max-width: 100%;
+    padding: 10px 0;
+    margin: 20px 0;
+  }
+  
+  .form-group {
     margin-bottom: 10px;
-}
-
-.form-group label {
+  }
+  
+  .form-group label {
     display: block;
     margin-bottom: 5px;
-}
-
-.form-group input, .form-group textarea {
+  }
+  
+  .form-group input,
+  .form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-}
-
-
-/* Медиа-запрос для маленьких экранов */
-@media (max-width: 768px) {
+  }
+  
+  /* Медиа-запрос для Contacts */
+  @media (max-width: 768px) {
     .contacts-info {
-        flex-direction: column; /* Располагаем элементы в колонку */
+      flex-direction: column; /* Располагаем элементы в колонку */
     }
-
+  
     .contact-item {
-        flex: 1 0 100%; /* Элемент занимает всю ширину */
+      flex: 1 0 100%; /* Элемент занимает всю ширину */
     }
-}
+  }
+  
+  /* Review Form */
+  #reviewForm div {
+    margin-bottom: 10px;
+  }
+  
+  #reviewForm label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #reviewForm input,
+  #reviewForm textarea,
+  #reviewForm select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  #message {
+    border: 1px solid green;
+    padding: 10px;
+    background-color: lightgreen;
+    margin-top: 10px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Popup */
+  .popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    z-index: 100;
+    width: 400px;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+  }
+  
+  .popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .popup label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .popup input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .popup button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }

@@ -1,21 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Война и мир - буксейлс</title> 
+    <title>буксейлс</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            z-index: 100;
+            width: 400px;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .popup label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .popup input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo"><img src="icons/logo.svg" alt="BookSales"> буксейлс</a> 
+            <a href="index.html" class="logo"><img src="icons/logo.svg" alt="BookSales"> буксейлс</a>
             <nav>
                 <ul>
                     <li><a href="index.html">Главная</a></li>
-                    <li><a href="index.html">Каталог</a></li>
-                    <li><a href="index.html">Новинки</a></li>
                     <li><a href="about.html">О сайте</a></li>
+                    <li><a id="auth"></a></li>
                 </ul>
             </nav>
         </div>
@@ -23,29 +70,67 @@
 
     <main>
         <section class="book-details container">
-            <div class="book-details-content">
-                <img src="images/book1.png" alt="Война и мир"> 
-                <div class="book-info">
-                    <h1>Война и мир</h1>
-                    <p>Автор: Лев Толстой</p>
-                    <p>Цена: 500 руб.</p>
-                    <h2>Описание:</h2>
-                    <p>
-                        "Война и мир" - это эпический роман Льва Толстого, который описывает 
-                        жизнь российского общества в период наполеоновских войн. 
-                        Роман затрагивает темы любви, семьи, войны, смерти, 
-                        поиска смысла жизни и многое другое. 
-                    </p>
-                    <h2>Состав:</h2>
-                    <ul>
-                        <li>Роман "Война и мир" в 4 томах.</li>
-                        <li>Твердый переплет.</li>
-                        <li>Бумага офсетная.</li>
-                    </ul>
-                    <button>Купить</button> 
-                </div>
+            <div class="book-details-content" id="bookDetails">
+                <!-- Данные книги будут загружены сюда -->
             </div>
         </section>
+
+        <section class="container">
+            <h2>Оставьте отзыв о книге</h2>
+            <form id="reviewForm">
+                <div>
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Ваш email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="rating">Оценка (от 1 до 5):</label>
+                    <select id="rating" name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="review">Ваш отзыв:</label>
+                    <textarea id="review" name="review" rows="5" required></textarea>
+                </div>
+                <button type="submit">Отправить отзыв</button>
+            </form>
+
+            <div id="message" class="hidden">
+                <h3>Спасибо за ваш отзыв!</h3>
+            </div>
+        </section>
+
+        <!-- Popup форма "Купить" -->
+        <div id="buyPopup" class="popup">
+            <span class="close" onclick="closePopup()">×</span>
+            <h2>Оформление покупки</h2>
+            <p>Книга: <span id="popupBookTitle"></span></p>
+            <p>Цена: <span id="popupBookPrice"></span> руб.</p>
+
+            <form id="buyForm">
+                <div>
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Ваш email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="address">Адрес доставки:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <button type="submit">Оформить заказ</button>
+            </form>
+        </div>
     </main>
 
     <footer>
@@ -53,5 +138,81 @@
             <p>© 2024 буксейлс</p>
         </div>
     </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        const bookDetailsContainer = document.getElementById('bookDetails');
+        const buyPopup = document.getElementById('buyPopup');
+        const popupBookTitle = document.getElementById('popupBookTitle');
+        const popupBookPrice = document.getElementById('popupBookPrice');
+        const buyForm = document.getElementById('buyForm');
+        const reviewForm = document.getElementById('reviewForm');
+        const messageContainer = document.getElementById('message');
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookId = urlParams.get('id');
+
+        // Загрузка данных книги из JSON-файла
+        fetch('books.json')
+            .then(response => response.json())
+            .then(books => {
+                const book = books.find(b => b.id === parseInt(bookId));
+
+                if (book) {
+                    document.title = `${book.title} - буксейлс`;
+
+                    bookDetailsContainer.innerHTML = `
+            <img src="${book.image}" alt="${book.title}">
+            <div class="book-info">
+              <h1>${book.title}</h1>
+              <p>Автор: ${book.author}</p>
+              <h4>Цена: ${book.price} руб.</h4>
+              <h2>Описание:</h2>
+              <p>${book.description}</p>
+              <h2>Состав:</h2>
+              <ul>
+                ${book.composition.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+              <button onclick="openPopup('${book.title}', ${book.price})">Купить</button>
+            </div>
+          `;
+                } else {
+                    bookDetailsContainer.innerHTML = '<p>Книга не найдена</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при загрузке данных:', error);
+                bookDetailsContainer.innerHTML = '<p>Ошибка при загрузке данных</p>';
+            });
+
+        // Функция для открытия popup
+        function openPopup(title, price) {
+            popupBookTitle.textContent = title;
+            popupBookPrice.textContent = price;
+            buyPopup.style.display = 'block';
+        }
+
+        // Функция для закрытия popup
+        function closePopup() {
+            buyPopup.style.display = 'none';
+        }
+
+        // Обработка отправки формы покупки
+        buyForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            closePopup();
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        });
+
+        // Обработка отправки формы отзыва
+        reviewForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            messageContainer.classList.remove('hidden');
+            reviewForm.reset();
+        });
+    </script>
 </body>
+
 </html>

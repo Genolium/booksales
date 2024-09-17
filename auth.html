@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>буксейлс - авторизация</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 40px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="loginForm">
+            <h2>Авторизация</h2>
+            <div class="error" id="error" style="display: none;"></div>
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <div class="form-actions">
+                <button type="submit">Войти</button>
+                <a href="#" id="showRegister">Регистрация</a>
+            </div>
+        </form>
+
+        <form id="registerForm" style="display: none;">
+            <h2>Регистрация</h2>
+            <div class="error" id="registerError" style="display: none;"></div>
+            <label for="regUsername">Имя пользователя:</label>
+            <input type="text" id="regUsername" name="regUsername" required>
+            <label for="regPassword">Пароль:</label>
+            <input type="password" id="regPassword" name="regPassword" required>
+            <div class="form-actions">
+                <button type="submit">Зарегистрироваться</button>
+                <a href="#" id="showLogin">Вход</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const showRegisterLink = document.getElementById('showRegister');
+        const showLoginLink = document.getElementById('showLogin');
+        const errorDiv = document.getElementById('error');
+        const registerErrorDiv = document.getElementById('registerError');
+
+        // Проверка авторизации через куки
+        if (document.cookie.includes('loggedIn=true')) {
+            window.location.href = 'index.html';
+        }
+
+        // Обработка входа
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Получаем данные пользователей из localStorage
+            let users = JSON.parse(localStorage.getItem('users')) || {};
+
+            if (users[username] && users[username] === password) {
+                // Устанавливаем куки
+                document.cookie = "loggedIn=true; max-age=604800; path=/;";
+                window.location.href = 'index.html';
+            } else {
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = 'Неверное имя пользователя или пароль';
+            }
+        });
+
+        // Обработка регистрации
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Получаем данные пользователей из localStorage
+            let users = JSON.parse(localStorage.getItem('users')) || {};
+
+            if (users[username]) {
+                // Пользователь с таким именем уже существует
+                registerErrorDiv.style.display = 'block';
+                registerErrorDiv.textContent = 'Пользователь с таким именем уже существует';
+            } else {
+                // Сохраняем нового пользователя в localStorage
+                users[username] = password;
+                localStorage.setItem('users', JSON.stringify(users));
+                registerErrorDiv.style.display = 'block';
+                registerErrorDiv.textContent = 'Регистрация успешна! Теперь вы можете войти.';
+                registerErrorDiv.style.color = 'green';
+                registerForm.reset();
+            }
+        });
+
+        // Переключение между формами
+        showRegisterLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        });
+
+        showLoginLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
